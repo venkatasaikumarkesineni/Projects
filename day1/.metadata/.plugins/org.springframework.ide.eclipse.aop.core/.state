@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="bankuser-login"/>
+<aop-project name="Login"/>
+<aop-project name="bankAccount-crud"/>
+<aop-project name="DiecoverMicroService"/>
+</aop-reference-model>
