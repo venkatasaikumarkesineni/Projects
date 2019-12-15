@@ -1,0 +1,21 @@
+server:
+  port: 8881
+  
+  #Spring white labled error page disabled to use our own error
+  error:
+    whitelabel:
+      enabled: false
+      #Micro-service name which runs in Discovery Service
+spring:
+  application:
+    name: client-ui
+ #prefix and suffix of pages
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+ #Disvovery server Acess
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:4321/eureka/         

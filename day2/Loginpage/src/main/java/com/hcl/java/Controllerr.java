@@ -25,8 +25,8 @@ public class Controllerr {
 	@RequestMapping(value="/")
 	public ModelAndView sai () {
 		ModelAndView mv = new ModelAndView();
-//		Login login = new Login();
-//		mv.addObject("login", login);
+		Login login = new Login();
+		mv.addObject("login", login);
 		mv.addObject(new Login());
 		mv.setViewName("Login");
 		return mv;
@@ -59,7 +59,7 @@ public class Controllerr {
 	@RequestMapping("/sairegister")
 	public ModelAndView Registerpage() {
 		ModelAndView mv  = new ModelAndView();
-		//Login log = new Login();
+		Login log = new Login();
 		mv.addObject(new Login());
 		mv.setViewName("registeruser");
 		return mv;
