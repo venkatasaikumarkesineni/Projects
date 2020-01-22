@@ -56,7 +56,9 @@ public class ClientController {
 			mv.addObject("siri", session);
 			mv.setViewName("HomePage");
 		} else {
-			mv.setViewName("failure");
+			mv.addObject("error", 500);
+			mv.addObject(new Login());
+			mv.setViewName("Login");
 		}
 		return mv;
 	}

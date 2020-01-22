@@ -1,3 +1,4 @@
+<%@page import="org.bouncycastle.crypto.tls.AlertDescription"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
@@ -19,20 +20,27 @@
 	}
 </script>
 <style type="text/css">
-.a{
-border: black solid 1px;
-border-style: double;
-padding: 10px;
-background-color: #C0C0C0; 
+.a {
+	border: black solid 1px;
+	border-style: double;
+	padding: 10px;
+	background-color: #C0C0C0;
 }
-.b{
-text-align: center;
-padding-left: 15px;
+
+.b {
+	text-align: center;
+	padding-left: 15px;
 }
 </style>
 </head>
 <body>
 	<center>
+		<c:set var="err" value="${error}"></c:set>
+		<c:if test="${err == 500 }">
+			<script type="text/javascript">
+				alert("Please Enter Proper Credentials");
+			</script>
+		</c:if>
 		<table class="a">
 			<form:form id="submitt" action="authenticate" modelAttribute="login"
 				method="post">
@@ -42,14 +50,13 @@ padding-left: 15px;
 					</td>
 				</tr>
 				<tr>
-					<td>Password:<form:input path="password" type="password" id="pwd"
-							placeholder="Enter your user Password" />
+					<td>Password:<form:input path="password" type="password"
+							id="pwd" placeholder="Enter your user Password" />
 					</td>
 				</tr>
 				<tr class="b">
 					<td><input type="button" value="Login" onclick="js()">
-					<a href="/register"> New Register</a>
-					</td>
+						<a href="/register"> New Register</a></td>
 				</tr>
 			</form:form>
 		</table>

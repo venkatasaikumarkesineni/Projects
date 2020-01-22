@@ -134,5 +134,13 @@ public class ClientRepositoryImpl implements ClientRepository {
 		return list;
 	}
 
+//	@Override
+//	public String returnBooksBacktoAvailableBooks(int stdid, String[] bookids) {
+//		// TODO Auto-generated method stub
+//		List<String> list = Arrays.asList(bookids);
+//		ResponseEntity<String> res = restTemplate.postForEntity(serviceUrl+"/addReturnBooks/"+stdid, request, responseType, uriVariables)
+//		return null;
+//	}
+
 
 }

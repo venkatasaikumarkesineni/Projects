@@ -21,5 +21,6 @@ public interface ClientRepository {
 	public List<BooksHistory> PendingBooksToReturn(int stdid);
 	public String returnBooks(int stdid,String bookids[]);
 	public List<Books> AllAvailableBookks();
+	//public String returnBooksBacktoAvailableBooks(int stdid,String bookids[]);
 	
 }

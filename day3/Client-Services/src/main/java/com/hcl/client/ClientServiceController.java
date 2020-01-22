@@ -27,9 +27,9 @@ public class ClientServiceController {
 	BooksHistoryRepository booksHistoryRepository;
 	@RequestMapping("/login/{username}")
 	public @ResponseBody Login login(@PathVariable("username") String username) {
-		List<Login> lst = clientServiceRepository.findByUsername(username);
-		Login log = lst.get(0);
-		if(lst.size()!= 0) {
+		Optional<Login> lst = clientServiceRepository.findByUsername(username);
+		if(lst.isPresent()) {
+			Login log = lst.get();
 			return log;
 		}
 		else {
@@ -117,6 +117,15 @@ public class ClientServiceController {
          System.out.println("Accepted");
 		for(int i=0;i<list.size();i++) {
 			booksHistoryRepository.deleteOneByOne(stdid,list.get(i));
+		}
+		for(int i=0;i<list.size();i++) {
+			
+			List<Books> lst = clientServiceBooksRepository.findByBookid(list.get(i));
+            Books bks = lst.get(0);
+			int available = bks.getAvailablebooks();
+			//System.out.println(available+"Haii Saii Kumar");
+			int availablebooks = available+1;
+			clientServiceBooksRepository.AddReturnBooksToExisting(list.get(i),availablebooks);
 		}
 		return "Sucess";
 	}
